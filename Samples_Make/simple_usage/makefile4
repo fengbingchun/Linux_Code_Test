@@ -1,0 +1,19 @@
+#变量值的替换
+
+#将变量foo中全部以.o字串结尾全部替换成.c  
+foo := a.o b.o c.o
+bar := $(foo:.o=.c)
+  
+#静态模式实现变量值的替换：依赖被替换字串中有相同模式
+bar1 := $(foo:%.o=%.c)
+  
+#把变量的值再当成变量  
+x = $(y)
+y = z
+z = Hello
+a := $($(x))
+
+exec:
+	echo $(bar) #a.c b.c c.c
+	echo $(bar1) #a.c b.c c.c
+	echo $(a) #Hello

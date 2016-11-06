@@ -1,0 +1,14 @@
+#定义一个变量其值是空格
+
+#但是这个例子好像并没有起到作用？？？？     
+nullstring :=    
+space := $(nullstring)#end of the line
+out := spring$(space)spring
+
+#以下这个例子可以获得预期的结果
+dir := /bin/sh #directory  
+path := $(dir)/file
+
+exec:
+	echo $(out) #springspring
+	echo $(path) #/bin/sh /file

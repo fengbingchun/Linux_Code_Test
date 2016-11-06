@@ -1,0 +1,16 @@
+#追加变量值
+
+objects = main.o foo.o bar.o
+
+#下面两行语句等价
+#objects := $(objects) another.o
+objects += another.o
+
+variable := value
+#下面两行语句等价
+#variable := $(variable) more
+variable += more
+
+exec:  
+	echo $(objects) #main.o foo.o bar.o another.o
+	echo $(variable) #value more

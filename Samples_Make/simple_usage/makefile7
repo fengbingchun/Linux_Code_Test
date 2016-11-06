@@ -1,0 +1,25 @@
+#Ê¹ÓÃº¯Êý  
+  
+#subst  
+comma := ,
+empty :=
+space := $(empty) $(empty)
+foo := a b c
+bar := $(subst $(space),$(comma),$(foo))
+
+#sort
+str := foo bar lose
+str := $(sort $(str))
+
+#foreach
+names := a b c d
+files := $(foreach n,$(names),$(n).o)
+
+#shell
+directory := $(shell pwd)
+
+exec:
+	echo $(bar) #a,b,c
+	echo $(str) #bar foo lose
+	echo $(files) #a.o b.o c.o d.o
+	echo $(directory)

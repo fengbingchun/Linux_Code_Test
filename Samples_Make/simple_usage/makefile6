@@ -1,0 +1,21 @@
+#使用条件判断
+
+#ifdef
+bar =
+foo = $(bar)
+ifdef foo
+    frobozz = yes
+else
+    frobozz = no
+endif
+
+#ifeq
+ifeq ($(CC), gcc)
+    b = gcc
+else
+    b = other
+endif
+
+exec:
+	echo $(frobozz) #yes
+	echo $(b)

@@ -1,0 +1,24 @@
+#/cmake/api
+PROJECT(math_api)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+MESSAGE("==============start build api==============")
+
+SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -z defs -pthread")
+
+MESSAGE(STATUS "api install dir: ${SDK_INSTALL_PATH}")
+INCLUDE_DIRECTORIES(${SDK_INSTALL_PATH}/include/add_sub)
+INCLUDE_DIRECTORIES(${SDK_INSTALL_PATH}/include/mul_div)
+LINK_DIRECTORIES(${SDK_INSTALL_PATH}/lib)
+INCLUDE_DIRECTORIES(include)
+
+ADD_SUBDIRECTORY(sdk)
+
+if(NOT NO_TESTBENCH)
+	MESSAGE(STATUS "run test")
+	ADD_SUBDIRECTORY(test)
+endif()
+
+INSTALL(DIRECTORY ./include/
+	DESTINATION include
+	)

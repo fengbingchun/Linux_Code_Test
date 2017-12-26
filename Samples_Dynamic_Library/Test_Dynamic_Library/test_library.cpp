@@ -12,7 +12,10 @@ int test_library_1()
 
 	c = library_add(a, b);
 	fprintf(stdout, "%d + %d = %d\n", a, b, c);
-	fprintf(stdout, "value: %d\n", value);
+
+#ifdef FBC_EXPORT
+	fprintf(stdout, "dynamic library: value: %d\n", value);
+#endif
 
 	return 0;
 }
@@ -38,11 +41,12 @@ int test_library_2()
 
 int test_library_3()
 {
-	return 0;
-}
+#ifdef FBC_EXPORT
+	fprintf(stdout, "dynamic library cann't run print_log function\n");
+#else
+	print_log();
+#endif
 
-int test_library_4()
-{
 	return 0;
 }
 

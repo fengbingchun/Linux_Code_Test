@@ -1,4 +1,4 @@
-#!/bin/bash 
+ï»¿#!/bin/bash 
 
 #set -e #Exit immediately if a command exits with a non-zero status
 
@@ -14,12 +14,12 @@ fi
 
 echo "no test: $NO_TEST"
 
-#mkdirµÄ-pÑ¡ÏîÔÊÐíÒ»´Î´´½¨¶à²ã´ÎµÄÄ¿Â¼£¬¶ø²»ÊÇÒ»´ÎÖ»´´½¨µ¥¶ÀµÄÄ¿Â¼
+#mkdirçš„-pé€‰é¡¹å…è®¸ä¸€æ¬¡åˆ›å»ºå¤šå±‚æ¬¡çš„ç›®å½•ï¼Œè€Œä¸æ˜¯ä¸€æ¬¡åªåˆ›å»ºå•ç‹¬çš„ç›®å½•
 mkdir -p $BUILD_ROOT/build
 cd $BUILD_ROOT/build
 cmake -DCMAKE_CXX_FLAGS=-g -DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH=$BUILD_ROOT/install $PROJ_ROOT
-make -j4 #²¢ÐÐ´¦Àí,cpu¸öÊý
+make -j4 #å¹¶è¡Œå¤„ç†,cpuä¸ªæ•°
 make install > /home/spring/math_oper1.txt
 
 mkdir -p $BUILD_ROOT/api/build

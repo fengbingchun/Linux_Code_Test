@@ -1,7 +1,7 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test13.sh
-# ÑÝÊ¾IFSµÄÓÃ·¨
+# æ¼”ç¤ºIFSçš„ç”¨æ³•
 # Spring 2015-04-23
 
 line="root:0:0:0:ront:/root:/bin/bash"

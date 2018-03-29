@@ -1,7 +1,7 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test17.sh
-# Í³¼ÆÎÄ¼şÀàĞÍĞÅÏ¢
+# ç»Ÿè®¡æ–‡ä»¶ç±»å‹ä¿¡æ¯
 # Spring 2015-04-24
 
 if [ $# -ne 1 ]

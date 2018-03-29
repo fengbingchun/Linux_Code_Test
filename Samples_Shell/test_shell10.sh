@@ -1,7 +1,7 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test16.sh
-# ÅúÁ¿Éú³É¿Õ°×ÎÄ¼ş
+# æ‰¹é‡ç”Ÿæˆç©ºç™½æ–‡ä»¶
 # Spring 2015-04-24
 
 for name in {1..10}.txt

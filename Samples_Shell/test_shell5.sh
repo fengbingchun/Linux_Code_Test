@@ -1,34 +1,34 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test11.sh
-# Êı×éµÄÊ¹ÓÃ
+# æ•°ç»„çš„ä½¿ç”¨
 # Spring 2015-04-22
 
 array_var1=(1 2 3 4 5 6)
 echo $array_var1 #1
-echo ${array_var1[*]} #´òÓ¡ËùÒÔÖµ
+echo ${array_var1[*]} #æ‰“å°æ‰€ä»¥å€¼
 
 array_var[0]="test1"
 array_var[1]="test2"
 array_var[2]="test3"
 array_var[3]="test4"
 array_var[4]="test5"
-echo ${array_var[0]} #´òÓ¡³öÌØ¶¨Ë÷ÒıµÄÊı×éÔªËØÄÚÈİ
+echo ${array_var[0]} #æ‰“å°å‡ºç‰¹å®šç´¢å¼•çš„æ•°ç»„å…ƒç´ å†…å®¹
 index=3
-echo ${array_var[$index]} #´òÓ¡³öÌØ¶¨Ë÷ÒıµÄÊı×éÔªËØÄÚÈİ
+echo ${array_var[$index]} #æ‰“å°å‡ºç‰¹å®šç´¢å¼•çš„æ•°ç»„å…ƒç´ å†…å®¹
 
-# ÒÔÇåµ¥ĞÎÊ½´òÓ¡³öÊı×éÖĞµÄËùÓĞÖµ
+# ä»¥æ¸…å•å½¢å¼æ‰“å°å‡ºæ•°ç»„ä¸­çš„æ‰€æœ‰å€¼
 echo ${array_var[*]}
-echo ${array_var[@]} #ÁíÒ»ÖÖ·½Ê½
+echo ${array_var[@]} #å¦ä¸€ç§æ–¹å¼
 
-echo ${#array_var[*]} #´òÓ¡Êı×é³¤¶È
+echo ${#array_var[*]} #æ‰“å°æ•°ç»„é•¿åº¦
 
-# Ê¹ÓÃµ¥¶ÀµÄÉùÃ÷Óï¾ä½«Ò»¸ö±äÁ¿ÉùÃ÷Îª¹ØÁªÊı×é
+# ä½¿ç”¨å•ç‹¬çš„å£°æ˜è¯­å¥å°†ä¸€ä¸ªå˜é‡å£°æ˜ä¸ºå…³è”æ•°ç»„
 declare -A fruits_value
-# ÀûÓÃÄÚÇ¶Ë÷Òı--ÖµÁĞ±í·¨»òÊ¹ÓÃ¶ÀÁ¢µÄË÷Òı--Öµ½øĞĞ¸³Öµ
+# åˆ©ç”¨å†…åµŒç´¢å¼•--å€¼åˆ—è¡¨æ³•æˆ–ä½¿ç”¨ç‹¬ç«‹çš„ç´¢å¼•--å€¼è¿›è¡Œèµ‹å€¼
 fruits_value=([apple]='100 dollars' [orange]='150 dollars')
 echo "Apple costs ${fruits_value[apple]}"
 
-# ÁĞ³öÊı×éË÷Òı
+# åˆ—å‡ºæ•°ç»„ç´¢å¼•
 echo ${!fruits_value[*]}
-echo ${!fruits_value[@]} #ÁíÒ»ÖÖ·½·¨
+echo ${!fruits_value[@]} #å¦ä¸€ç§æ–¹æ³•

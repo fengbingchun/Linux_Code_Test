@@ -1,17 +1,17 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test10.sh
-# ÎÄ¼şÃèÊö·ûµÄÊ¹ÓÃ
+# æ–‡ä»¶æè¿°ç¬¦çš„ä½¿ç”¨
 # Spring 2015-04-22
 
-# ÕâÖÖ·½·¨Í¨¹ı½ØÈ¡ÎÄ¼şµÄ·½Ê½£¬½«Êä³öÎÄ±¾´æ´¢µ½ÎÄ¼ş/home/spring/temp.txtÖĞ
-# ÔÚ°ÑechoÃüÁîµÄÊä³öĞ´ÈëÎÄ¼şÖ®Ç°£¬temp.txtÖĞµÄÄÚÈİÊ×ÏÈ»á±»Çå¿Õ
+# è¿™ç§æ–¹æ³•é€šè¿‡æˆªå–æ–‡ä»¶çš„æ–¹å¼ï¼Œå°†è¾“å‡ºæ–‡æœ¬å­˜å‚¨åˆ°æ–‡ä»¶/home/spring/temp.txtä¸­
+# åœ¨æŠŠechoå‘½ä»¤çš„è¾“å‡ºå†™å…¥æ–‡ä»¶ä¹‹å‰ï¼Œtemp.txtä¸­çš„å†…å®¹é¦–å…ˆä¼šè¢«æ¸…ç©º
 echo "This is a sample text 1" > /home/spring/temp.txt
 
-# ÕâÖÖ·½·¨»á½«ÎÄ±¾×·¼Óµ½Ä¿±êÎÄ¼şÖĞ
+# è¿™ç§æ–¹æ³•ä¼šå°†æ–‡æœ¬è¿½åŠ åˆ°ç›®æ ‡æ–‡ä»¶ä¸­
 echo "This is a sample text 2" >> /home/spring/temp.txt
 
-# ÖØ¶¨Ïò½Å±¾ÄÚ²¿µÄÎÄ±¾¿é
+# é‡å®šå‘è„šæœ¬å†…éƒ¨çš„æ–‡æœ¬å—
 cat <<EOF > /home/spring/log.txt
 LOG FILE HEADER
 This is a test log file

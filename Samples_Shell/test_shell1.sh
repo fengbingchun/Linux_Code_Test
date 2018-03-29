@@ -1,13 +1,13 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test7.sh
-# echoºÍsprintfµÄÓÃ·¨
+# echoå’Œsprintfçš„ç”¨æ³•
 # Spring 2015-04-22
 #
 
 echo "hello, beijing"
 echo "$(pwd)"
-echo '$(pwd)' #½á¹û²¢²»ÊÇÏ£ÍûµÃµ½µÄ
+echo '$(pwd)' #ç»“æœå¹¶ä¸æ˜¯å¸Œæœ›å¾—åˆ°çš„
 echo $(pwd)
 echo -n  what is your name?
 echo 'hello, spring'

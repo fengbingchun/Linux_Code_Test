@@ -1,7 +1,7 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test14.sh
-# ÎÄ¼şÖØÃüÃû
+# æ–‡ä»¶é‡å‘½å
 # Spring 2015-04-24
 
 count=1;

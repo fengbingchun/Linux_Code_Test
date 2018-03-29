@@ -1,13 +1,13 @@
-#×·¼Ó±äÁ¿Öµ
+ï»¿#è¿½åŠ å˜é‡å€¼
 
 objects = main.o foo.o bar.o
 
-#ÏÂÃæÁ½ĞĞÓï¾äµÈ¼Û
+#ä¸‹é¢ä¸¤è¡Œè¯­å¥ç­‰ä»·
 #objects := $(objects) another.o
 objects += another.o
 
 variable := value
-#ÏÂÃæÁ½ĞĞÓï¾äµÈ¼Û
+#ä¸‹é¢ä¸¤è¡Œè¯­å¥ç­‰ä»·
 #variable := $(variable) more
 variable += more
 

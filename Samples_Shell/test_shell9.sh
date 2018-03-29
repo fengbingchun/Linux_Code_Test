@@ -1,7 +1,7 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test15.sh
-# ½»»¥Ê½ÊäÈë
+# äº¤äº’å¼è¾“å…¥
 # Spring 2015-04-24
 
 read -p "Enter number:" no

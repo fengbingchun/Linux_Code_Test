@@ -1,12 +1,12 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test8.sh
-# ±äÁ¿µÄÊ¹ÓÃ
+# å˜é‡çš„ä½¿ç”¨
 # Spring 2015-04-22
 
-var=value #var = value ÊÇ´íÎóµÄ,"="Á½±ß²»ÄÜÓĞ¿Õ¸ñ
+var=value #var = value æ˜¯é”™è¯¯çš„,"="ä¸¤è¾¹ä¸èƒ½æœ‰ç©ºæ ¼
 
-echo $var #×¢Òâecho $(var) ÊÇ´íÎóµÄ
+echo $var #æ³¨æ„echo $(var) æ˜¯é”™è¯¯çš„
 echo ${var}
 
 fruit=apple
@@ -14,4 +14,4 @@ count=5
 echo "We have $count ${fruit}(s)"
 
 var1=1234567890
-echo ${#var1} #»ñµÃ±äÁ¿ÖµµÄ³¤¶È
+echo ${#var1} #è·å¾—å˜é‡å€¼çš„é•¿åº¦

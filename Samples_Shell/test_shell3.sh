@@ -1,7 +1,7 @@
-#! /bin/bash
+ï»¿#! /bin/bash
 
 # shell script -- test9.sh
-# Í¨¹ıshell½øĞĞÊıÑ§ÔËËã
+# é€šè¿‡shellè¿›è¡Œæ•°å­¦è¿ç®—
 # Spring 2015-04-22
 
 no1=4

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <unistd.h>
 
-using namespace std;
+namespace {
 
 pthread_mutex_t count_lock;
 pthread_cond_t count_nonzero;
@@ -11,61 +11,72 @@ unsigned count = 0;
 void* decrement_count(void* arg)
 {
 	pthread_mutex_lock(&count_lock);
-	cout << "decrement_count get count_lock" << endl;
+	std::cout << "----- decrement_count get count_lock" << std::endl;
 
-	while (count == 0) {
-		cout << "decrement_count count == 0" << endl;
+	while (count <= 5) {
+		std::cout <<"----- Line: " << __LINE__ << ", count = " << count << std::endl;
+		std::cout << "----- decrement_count count == 0" << std::endl;
+		sleep(2);
 
-		cout << "decrement_count before cond_wait" << endl;
+		std::cout << "----- decrement_count before cond_wait" << std::endl;
 		pthread_cond_wait(&count_nonzero, &count_lock);
-		cout << "decrement_count after cond_wait" << endl;
+		std::cout << "----- decrement_count after cond_wait" << std::endl;
+		std::cout <<"----- Line: " << __LINE__ << ", count = " << count << std::endl;
 	}
 
 	count = count + 1;
+	std::cout <<"----- Line: " << __LINE__ << ", count = " << count << std::endl;
 
 	pthread_mutex_unlock(&count_lock);
-
-	return NULL;
+	return nullptr;
 }
 
 void* increment_count(void* arg)
 {
-	pthread_mutex_lock(&count_lock);
-	cout << "increment_count get count_lock" << endl;
+	//pthread_mutex_lock(&count_lock);
+	std::cout << "+++++ increment_count get count_lock" << std::endl;
 
-	if (count == 0) {
-		cout << "increment_count before cond_signal" << endl;
+	while (count <= 10) {
+		sleep(2);
+		std::cout <<"+++++ Line: " << __LINE__ << ", count = " << count << std::endl;	
+		std::cout << "+++++ increment_count before cond_signal" << std::endl;
 		pthread_cond_signal(&count_nonzero);
-		cout << "increment_count after cond_signal" << endl;
-	}
+		std::cout << "+++++ increment_count after cond_signal" << std::endl;
+		std::cout <<"+++++ Line: " << __LINE__ << ", count = " << count << std::endl;
 
-	count = count + 1;
+		count = count + 1;
+		std::cout <<"+++++ Line: " << __LINE__ << ", count = " << count << std::endl;
+	}	
 
-	pthread_mutex_unlock(&count_lock);
-
-	return NULL;
+	//pthread_mutex_unlock(&count_lock);
+	return nullptr;
 }
+
+} // namespace 
 
 int main()
 {
-	pthread_t tid1, tid2;
+	std::cout <<"Line: " << __LINE__ << ", count = " << count << std::endl;
+	pthread_t tid[2] = {0, 0};
 
-	pthread_mutex_init(&count_lock, NULL);
-	pthread_cond_init(&count_nonzero, NULL);
+	pthread_mutex_init(&count_lock, nullptr);
+	pthread_cond_init(&count_nonzero, nullptr);
 
-	pthread_create(&tid1, NULL, decrement_count, NULL);
-	sleep(2);
+	pthread_create(&tid[0], nullptr, decrement_count, nullptr);
+	pthread_create(&tid[1], nullptr, increment_count, nullptr);
 
-	pthread_create(&tid2, NULL, increment_count, NULL);
-	sleep(2);
-
-	pthread_join(tid1, NULL);
-	pthread_join(tid2, NULL);
+	for (auto pth : tid) {
+		fprintf(stdout, "new thread id: %ld, Line: %d\n", pth, __LINE__);
+		pthread_join(pth, nullptr);
+	}
 	pthread_mutex_destroy(&count_lock);
 	pthread_cond_destroy(&count_nonzero);
 
-	cout << "ok!" << endl;
+	std::cout <<"Line: " << __LINE__ << ", count = " << count << std::endl;
+	std::cout << "ok!" << std::endl;
+
+	return 0;
 }
 
-//终端执行：$ g++ -o test_thread_cond test_thread_cond.cpp -lpthread
-//	    $ ./test_thread_cond
+// 终端执行:$ g++ -o test_thread_cond test_thread_cond.cpp -lpthread
+//	      $ ./test_thread_cond

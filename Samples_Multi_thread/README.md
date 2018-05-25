@@ -12,8 +12,7 @@ This is a quick start for samples of multi-thread.
     $ cd build
     $ cmake ..
     $ make
-    $ make install
 
 4. Run
 
-    $ ./bin/<SAMPLE_NAME>
+    $ ./sample_name

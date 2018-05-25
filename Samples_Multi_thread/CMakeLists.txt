@@ -1,8 +1,6 @@
 PROJECT(samples_multi_thread)
 cmake_minimum_required(VERSION 2.8)
 
-#FIND_PACKAGE(OpenCV 2)
-
 MESSAGE("Find .cpp files in ${CMAKE_CURRENT_SOURCE_DIR}")
 
 #support c++11
@@ -16,7 +14,5 @@ FOREACH (sample ${samples})
 	STRING(REPLACE ".cpp" "" sample_basename ${sample_file})
 	ADD_EXECUTABLE(${sample_basename} ${sample})
 	TARGET_LINK_LIBRARIES(${sample_basename} pthread)
-
-	INSTALL(TARGETS ${sample_basename} DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 ENDFOREACH()
 

@@ -9,12 +9,14 @@
 #include <errno.h>
 #include <signal.h>
 
+namespace {
+
 sem_t sem;
 
 #define handle_error(msg) \
    do { perror(msg); exit(EXIT_FAILURE); } while (0)
 
-static void handler(int sig)
+void handler(int sig)
 {
 	write(STDOUT_FILENO, "sem_post() from handler\n", 24);
    	if (sem_post(&sem) == -1) {
@@ -22,6 +24,8 @@ static void handler(int sig)
 	   	_exit(EXIT_FAILURE);
    	}
 }
+
+} // namespace
 
 int main(int argc, char *argv[])
 {
@@ -41,7 +45,7 @@ int main(int argc, char *argv[])
    	sa.sa_handler = handler;
    	sigemptyset(&sa.sa_mask);
    	sa.sa_flags = 0;
-   	if (sigaction(SIGALRM, &sa, NULL) == -1)
+   	if (sigaction(SIGALRM, &sa, nullptr) == -1)
 	   	handle_error("sigaction");
 
    	alarm(atoi(argv[1]));

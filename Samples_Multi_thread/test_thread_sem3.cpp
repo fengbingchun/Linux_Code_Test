@@ -9,15 +9,36 @@
 #include <string.h>     /* String handling */
 #include <semaphore.h>  /* Semaphore */
 
-/* prototype for thread routine */
-void* handler(void* ptr);
+namespace {
 
 /* global vars */
 /* semaphores are declared global so they can be accessed 
    in main() and in thread routine,
    here, the semaphore is used as a mutex */
 sem_t mutex;
-int counter; /* shared variable */
+int counter = 0; /* shared variable */
+
+/* prototype for thread routine */
+void* handler(void* ptr)
+{
+    int x; 
+    x = *((int *)ptr);
+    printf("Thread %d: Waiting to enter critical region...\n", x);
+    sem_wait(&mutex);       /* down semaphore */
+    /* START CRITICAL REGION */
+    printf("Thread %d: Now in critical region...\n", x);
+    printf("Thread %d: Counter Value: %d\n", x, counter);
+    printf("Thread %d: Incrementing Counter...\n", x);
+    counter++;
+    printf("Thread %d: New Counter Value: %d\n", x, counter);
+    printf("Thread %d: Exiting critical region...\n", x);
+    /* END CRITICAL REGION */    
+    sem_post(&mutex);       /* up semaphore */
+    
+    pthread_exit(0); /* exit thread */
+}
+
+} // namespace
 
 int main()
 {
@@ -44,22 +65,3 @@ int main()
     /* exit */  
     exit(0);
 } /* main() */
-
-void* handler(void* ptr)
-{
-    int x; 
-    x = *((int *)ptr);
-    printf("Thread %d: Waiting to enter critical region...\n", x);
-    sem_wait(&mutex);       /* down semaphore */
-    /* START CRITICAL REGION */
-    printf("Thread %d: Now in critical region...\n", x);
-    printf("Thread %d: Counter Value: %d\n", x, counter);
-    printf("Thread %d: Incrementing Counter...\n", x);
-    counter++;
-    printf("Thread %d: New Counter Value: %d\n", x, counter);
-    printf("Thread %d: Exiting critical region...\n", x);
-    /* END CRITICAL REGION */    
-    sem_post(&mutex);       /* up semaphore */
-    
-    pthread_exit(0); /* exit thread */
-}

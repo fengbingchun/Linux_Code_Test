@@ -1,3 +1,5 @@
+// Blog: https://blog.csdn.net/fengbingchun/article/details/80870319
+
 #include <stdio.h>
 
 int __attribute__((weak)) x = 1; // weak symbol

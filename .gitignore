@@ -4,3 +4,4 @@
 /Samples_Multi_thread/build/
 /Samples_CMake/special_usage/build_android/
 /Samples_CMake/special_usage/build_linux/
+/Samples_c/weak_and_strong_symbol/build/

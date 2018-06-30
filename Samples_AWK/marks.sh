@@ -1,5 +1,80 @@
 #! /bin/bash
 
+echo "我们可以直接在命令行中执行AWK的命令，也可以从包含AWK命令的文本文件中执行:"
+echo "(1). 我们可以使用单引号在命令行中指定AWK命令,注意，其只能被单引号包含，如显示marks.txt文件的完整内容，则执行:"
+awk '{print}' marks.txt
+echo "(2). 我们也可以使用脚本文件提供AWK命令，如显示marks.txt文件的完整内容，则执行:"
+awk -f marks.awk marks.txt
+
+echo; echo "AWK标准选项："
+echo "(1). -v: 该选项将一个值赋予一个变量，它会在程序开始之前进行赋值,例如："
+awk -v name=Jerry 'BEGIN{printf "Name = %s\n", name}'
+echo "(2). --dump-variable: 该选项会输出排好序的全局变量列表和它们最终的值到文件中，默认的文件是awkvars.out，执行:"
+awk --dump-variables ''; cat awkvars.out
+echo "(3). --help: 打印帮助信息,执行:"
+awk --help
+echo "(4). --lint: 该选项允许检查程序的不兼容性或者模棱两可的代码，当提供参数 fatal的时候，它会对待Warning消息作为Error，如执行："
+#awk --lint '' /bin/ls; awk --lint 'fatal' /bin/ls
+echo "(5). --posix: 该选项开启严格的POSIX兼容."
+echo "(6). --profile: 该选项会输出一份格式化之后的程序到文件中，默认文件是 awkprof.out,如执行："
+awk --profile 'BEGIN { printf"---|Header|--\n" } { print } END { printf"---|Footer|---\n" }' marks.txt > /dev/null; cat awkprof.out
+echo "(7). --traditional: 该选项会禁止所有的gawk规范的扩展."
+echo "(8). --version: 输出版本号，执行:"
+awk --version
+
+echo; echo "内建变量："
+echo "(1). ARGC: 命令行参数个数,如执行："
+awk 'BEGIN {print "Arguments =", ARGC}' One Two Three Four
+echo "(2). ARGV: 命令行参数数组,，索引范围从0至(ARGC-1),如执行:"
+awk 'BEGIN {for (i = 0; i < ARGC; ++i) { printf "ARGV[%d] = %s\n", i, ARGV[i] }}' one two three four
+echo "(3). CONVFMT: 代表了数字的约定格式，默认值是%.6g,执行："
+awk 'BEGIN { print "Conversion Format =", CONVFMT }'
+echo "(4). ENVIRON: 环境变量的关联数组,如执行："
+awk 'BEGIN { print ENVIRON["USER"] }'
+echo "(5). FILENAME: 当前文件名,如执行："
+awk 'END {print FILENAME}' marks.txt
+echo "(6). FS: 代表了输入字段的分隔符，默认值为空格，可以通过-F选项在命令行选项中修改它,如执行:"
+awk 'BEGIN {print "FS = " FS}' | cat -vte; awk -F , 'BEGIN {print "FS = " FS}' | cat -vte
+echo "(7). NF: 代表了当前行中的字段数目，例如下面例子打印出了包含大于两个字段的行,执行："
+echo -e "One Two\nOne Two Three\nOne Two Three Four" | awk 'NF > 2'
+echo "(8). NR: 行号，如执行："
+echo -e "One Two\nOne Two Three\nOne Two Three Four" | awk 'NR < 3'
+echo "(9). FNR: 与NR相似，不过在处理多文件时更有用，获取的行号相对于当前文件."
+echo "(10). OFMT: 输出格式数字,默认值为%.6g，执行："
+awk 'BEGIN {print "OFMT = " OFMT}'
+echo "(11). OFS: 输出字段分隔符，默认为空格,执行:"
+awk 'BEGIN {print "OFS = " OFS}' | cat -vte
+echo "(12). ORS: 输出行分隔符,默认值为换行符,执行:"
+awk 'BEGIN {print "ORS = " ORS}' | cat -vte
+echo "(13). RLENGTH: 代表了match函数匹配的字符串长度,如执行："
+awk 'BEGIN { if (match("One Two Three", "re")) { print RLENGTH } }'
+echo "(14). RS: 输入记录分隔符,默认值为换行符,如执行："
+awk 'BEGIN {print "RS = " RS}' | cat -vte
+echo "(15). RSTART: match函数匹配的第一次出现位置,如执行:"
+awk 'BEGIN { if (match("One Two Three", "Thre")) { print RSTART } }'
+echo "(16). SUBSEP: 数组子脚本的分隔符，默认为^\，如执行:"
+awk 'BEGIN { print "SUBSEP = " SUBSEP }' | cat -vte
+echo "(17). $0: 代表了当前行,如执行:"
+awk '{print $0}' marks.txt
+echo "(18). $n: 当前行中的第n个字段,字段间由FS分隔,如执行："
+awk '{print $3 "\t" $4}' marks.txt
+
+echo; echo "GNU AWK的变量："
+echo "(1). ARGIND: 当前被处理的ARGV的索引"
+echo "(2). BINMODE: 在非POSIX系统上指定对所有的文件I/O采用二进制模式"
+echo "(3). ERRNO: 一个代表了getline跳转失败或者是close调用失败的错误的字符串,如执行："
+awk 'BEGIN { ret = getline < "junk.txt"; if (ret == -1) print "Error:", ERRNO }'
+echo "(4). FIELDWIDTHS: 设置了空格分隔的字段宽度变量列表的话，GAWK会将输入解析为固定宽度的字段，而不是使用FS进行分隔"
+echo "(5). IGNORECASE: 设置了这个变量的话，AWK会忽略大小写,如执行："
+awk 'BEGIN {IGNORECASE = 1} /amit/' marks.txt
+echo "(6). LINT: 提供了对"--lint"选项的动态控制,如执行："
+awk 'BEGIN {LINT = 1; a}'
+echo "(7). PROCINFO: 包含进程信息的关联数组，例如UID，进程ID等,如执行:"
+awk 'BEGIN { print PROCINFO["pid"] }'
+echo "(8). TEXTDOMAIN代表了AWK的文本域，用于查找字符串的本地化翻译,如执行："
+awk 'BEGIN { print TEXTDOMAIN }'
+
+
 echo; echo "显示marks.txt文件内容，并且添加每一列的标题:"
 awk 'BEGIN {printf "Sr No\tName\tSub\tMarks\n"} {print}' marks.txt
 
@@ -21,6 +96,7 @@ awk '/a/{++cnt} END {print "Count = ", cnt}' marks.txt
 echo; echo "打印超过18个字符的行:"
 awk 'length($0) > 18' marks.txt
 
+echo -e "支持的操作符："
 echo -e "\n算数操作符: a = 50, b = 20"
 awk 'BEGIN { a = 50; b = 20; print "(a + b) = ", (a + b) }'
 awk 'BEGIN { a = 50; b = 20; print "(a - b) = ", (a - b) }'

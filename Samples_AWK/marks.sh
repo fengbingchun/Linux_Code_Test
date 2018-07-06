@@ -74,7 +74,6 @@ awk 'BEGIN { print PROCINFO["pid"] }'
 echo "(8). TEXTDOMAIN代表了AWK的文本域，用于查找字符串的本地化翻译,如执行："
 awk 'BEGIN { print TEXTDOMAIN }'
 
-
 echo; echo "显示marks.txt文件内容，并且添加每一列的标题:"
 awk 'BEGIN {printf "Sr No\tName\tSub\tMarks\n"} {print}' marks.txt
 
@@ -95,6 +94,11 @@ awk '/a/{++cnt} END {print "Count = ", cnt}' marks.txt
 
 echo; echo "打印超过18个字符的行:"
 awk 'length($0) > 18' marks.txt
+
+echo -e "通过match函数查找指定字符串中的内容：" # 下面两行的结果相同
+awk 'BEGIN { print "find time:" } { if (match($0, /face size: .* in (.*)ms/, m)) { speed = m[1] } } END { printf "time: %dms\n", speed }' test.cpp
+awk 'BEGIN { print "find time:" } { if (match($0, "face size: .* in (.*)ms", m)) { speed = m[1] } } END { printf "time: %dms\n", speed }' test.cpp
+awk 'BEGIN { print "find substr:" } { if (match($0, "eye size")) { flag = 1 } } END { printf "flag: %d\n", flag }' test.cpp
 
 echo -e "支持的操作符："
 echo -e "\n算数操作符: a = 50, b = 20"
@@ -229,4 +233,7 @@ awk 'BEGIN {
 
 # 自定义函数的调用
 awk -f functions.awk
+
+# BEGIN END的使用
+awk -f test.awk -v author="fengbingchun" test.cpp #> a.cpp
 

@@ -19,11 +19,11 @@ function find_max(num1, num2) {
 # Main function
 function main(num1, num2) {
    	# Find minimum number
-   	result = find_min(10, 20)
+   	result = find_min(num1, num2)
    	print "Minimum =", result
   
    	# Find maximum number
-   	result = find_max(10, 20)
+   	result = find_max(num1, num2)
    	print "Maximum =", result
 }
 

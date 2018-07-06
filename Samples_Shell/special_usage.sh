@@ -21,9 +21,11 @@ echo "dir_name: ${dir_name}"
 
 # ------------------------------
 # mktemp命令用于建立暂存文件
-tmp_dir=`mktemp`
+tmp_dir=`mktemp` # 带绝对路径文件名
 tmp_dir=${dir_name}${tmp_dir}
 echo "tmp_dir: ${tmp_dir}"
+# reference: https://unix.stackexchange.com/questions/137775/how-to-extract-part-of-a-filename-before-or-before-extension
+echo "only show tmp_dir name: ${tmp_dir##*/}"
 
 # 如果指定目录不存在，则创建
 if [[ ! -d ${tmp_dir} ]]; then
@@ -70,5 +72,27 @@ echo "contents: ${contents}"
 name="/tmp/abc/xyz.jpg"
 echo "name: ${name%.jpg}" # /temp/abc/xyz
 
-#rm -r ${tmp_dir}
+# ------------------------------
+# 通过sed解析指定文件中的指定字段，并根据要求写入到另一指定文件中
+sed '/typedef struct/,/}/!d;//d' file.txt  | sed 's/x[0-9]://' | sed 's/y[0-9]://' | sed 's/$/,/' # > ./tmp/tmp.txt
+
+# ------------------------------
+# 通过find查找指定的所有文件，然后通过xargs将所有文件按照要求进行修改
+# -I {}的参数:就是在xargs后续命令里，用{}代表xargs之前的命令结果
+find . -name "*.sh" | xargs -I {} sed 's/echo/echo -e/' {} > ./tmp/tmp.txt
+find . -name "*.sh" | xargs -I {} cp {} ./tmp/
+
+# ------------------------------
+# $?: 上个命令的退出状态或函数的返回值.一般情况下，大部分命令执行成功会返回0，失败返回非0值
+# reference: https://stackoverflow.com/questions/6834487/what-is-the-dollar-question-mark-variable-in-shell-scripting/6834512
+status=$?
+echo "status: ${status}"
+if [[ ${status} != 0 ]]; then
+    echo "注意：非首次执行上面的命令会返回123：find . -name \"*.sh\" | xargs -I {} cp {} ./tmp/ "
+    #exit ${status}
+fi
+
+echo "ok!!!"
+
+#rm -rf ${tmp_dir}
 

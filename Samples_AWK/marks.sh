@@ -235,5 +235,5 @@ awk 'BEGIN {
 awk -f functions.awk
 
 # BEGIN END的使用
-awk -f test.awk -v author="fengbingchun" test.cpp #> a.cpp
+awk -f test.awk -v author="fengbingchun"  -v file1="a.cpp" -v file2="b.cpp" test.cpp
 

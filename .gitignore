@@ -7,3 +7,4 @@
 /Samples_c/weak_and_strong_symbol/build/
 /Samples_Shell/tmp/
 /Samples_AWK/*.out
+/Samples_AWK/*.o

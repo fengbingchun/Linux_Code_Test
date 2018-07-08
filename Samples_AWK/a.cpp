@@ -1,3 +1,7 @@
+// file name: a.cpp
+// Author: fengbingchun
+// ===== start process file: test.cpp
+
 #include <stdio.h>
 #include <iostream>
 #include <string>
@@ -10,25 +14,21 @@ int main()
     const std::string blog_name = "https://blog.csdn.net/fengbingchun";
     unsigned char t = 4;
     
-    const unsigned char _xx[5] __attribute__((aligned(64))) = { 
-        0x02, 0x32, 0x42, 0x32, 0x69 
-    };
+    const unsigned char* _xx = NULL;
+    const unsigned int _xx_offset = 0;
 
     typedef struct {
         int x, y, width, height;
         float score;
     } rect;
 
-    const unsigned char _yy[7]  __attribute__((aligned(64))) = {
-        0x12, 0x23, 0x54, 0x89,
-        0x01, 0x09, 0x26
-    };
+    const unsigned char* _yy = NULL;
+    const unsigned int _yy_offset = 64;
 
     const std::string github_name = "https://github.com/fengbingchun";
 
-    const unsigned char _zz[3] __attribute__((aligned(64))) = {
-        0x23, 0x78, 0x15
-    };
+    const unsigned char* _zz = NULL;
+    const unsigned int _zz_offset = 128;
 
     fprintf(stdout, "ok\n");
 
@@ -36,3 +36,5 @@ int main()
 }
 
 
+// blog: https://blog.csdn.net/fengbingchun 
+// ===== end process file: test.cpp

@@ -70,7 +70,15 @@ echo "contents: ${contents}"
 # ------------------------------
 # 通过"%"截断,%后的内容必须是变量name的最后n个字符，否则不起作用
 name="/tmp/abc/xyz.jpg"
-echo "name: ${name%.jpg}" # /temp/abc/xyz
+echo "name: ${name%.jpg}" # /tmp/abc/xyz
+# 通过"::"截断最后几个字符
+echo "name: ${name::-4}" # /tmp/abc/xyz
+
+# ------------------------------
+# 通过"##"截断最前面几个字符,##后的内容必须是变量name的最前n个字符，否则不起作用
+echo "name: ${name##/tmp}" # /abc/xyz.jpg
+# 通过":"截断最前面几个字符
+echo "name: ${name:4}" # /abc/xyz.jpg
 
 # ------------------------------
 # 通过sed解析指定文件中的指定字段，并根据要求写入到另一指定文件中

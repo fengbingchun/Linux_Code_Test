@@ -1,10 +1,10 @@
 /Samples_Dynamic_Library/build/
 /Samples_CMake/multi_executable_file/build/
-/Samples_cplusplus/build/
+/Samples_Cplusplus/build/
 /Samples_Multi_thread/build/
 /Samples_CMake/special_usage/build_android/
 /Samples_CMake/special_usage/build_linux/
-/Samples_c/weak_and_strong_symbol/build/
+/Samples_C/weak_and_strong_symbol/build/
 /Samples_Shell/tmp/
 /Samples_AWK/*.out
 /Samples_AWK/*.o

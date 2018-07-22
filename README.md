@@ -8,7 +8,7 @@
 - Socket's usage
 - Special usage of C/C++ under Linux
 - GNU AWK's usage
-- Implementation of C++ Standard Template Library: pair
+- Implementation of C++ Standard Template Library: pair, string
 
 **CMake Blog:** [fengbingchun](http://blog.csdn.net/fengbingchun/article/category/783053)
 

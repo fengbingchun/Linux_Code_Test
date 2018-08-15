@@ -1,4 +1,3 @@
-#/cmake/api
 PROJECT(math_api)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 

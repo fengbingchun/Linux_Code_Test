@@ -9,3 +9,7 @@
 /Samples_AWK/*.out
 /Samples_AWK/*.o
 /Samples_STL_Implementation/build/
+/Samples_CMake/complex_usage/build/
+/Samples_CMake/complex_usage/install/
+/Samples_CMake/complex_usage/api/build/
+/Samples_CMake/complex_usage/api_install/

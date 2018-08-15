@@ -1,4 +1,3 @@
-#/cmake/api/sdk
 AUX_SOURCE_DIRECTORY(. SDK_SRC_LIST)
 
 INCLUDE_DIRECTORIES(${SDK_INSTALL_PATH}/include/add_sub)

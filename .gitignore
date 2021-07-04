@@ -14,4 +14,5 @@
 /Samples_CMake/complex_usage/api/build/
 /Samples_CMake/complex_usage/api_install/
 /Samples_C/wrap_symbol/build/
+/Samples_Conan/build/
 

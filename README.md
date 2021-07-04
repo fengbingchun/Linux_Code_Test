@@ -9,6 +9,7 @@
 - Special usage of C/C++ under Linux
 - GNU AWK's usage
 - Implementation of C++ Standard Template Library: pair, string, vector
+- Conan's usage
 
 **CMake Blog:** [fengbingchun](http://blog.csdn.net/fengbingchun/article/category/783053)
 

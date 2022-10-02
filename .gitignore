@@ -17,5 +17,4 @@
 /Samples_Conan/build/
 /Samples_Hook/*/*.out
 /Samples_Hook/*/*.so
-
-
+/Samples_CMake/messy_usage/build/

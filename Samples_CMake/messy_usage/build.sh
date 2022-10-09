@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # supported input parameters
-params=(function macro)
+params=(function macro cmake_parse_arguments find_library)
 
 usage()
 {

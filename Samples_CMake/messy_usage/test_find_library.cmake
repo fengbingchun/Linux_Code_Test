@@ -2,15 +2,15 @@
 
 message("#### test_find_library.cmake ####")
 
-set(FLAG 9 CACHE STRING "Values that can be specified: [1, 9]" FORCE) # 设置FLAG，用来指定测试哪个代码段
+set(FLAG 9 CACHE STRING "Values that can be specified: [1, 9]" FORCE) # 设置FLAG,用来指定测试哪个代码段
 
 if(${FLAG} STREQUAL "1")
     unset(var CACHE) # 清除变量,带有CACHE也从缓存文件CMakeCache.txt中清除,若不带CACHE则缓存文件CMakeCache.txt中仍然存在var的值
     find_library(var NAMES opencv_core) # 查找默认路径,默认查找动态库?在/usr/lib/x86_64-linux-gnu/目录下既有libopencv_core.so也有libopencv_core.a
     message("var: ${var}") # var: /usr/lib/x86_64-linux-gnu/libopencv_core.so
 
-    # 如果找到库，则结果将存储在变量中，除非清除变量，否则不会重复搜索
-    find_library(var NAMES opencv_highgui) # 注意:未清除变量，不会重复搜索，最终结果是不对的，并没有查找opencv_highgui
+    # 如果找到库,则结果将存储在变量中,除非清除变量,否则不会重复搜索
+    find_library(var NAMES opencv_highgui) # 注意:未清除变量,不会重复搜索,最终结果是不对的,并没有查找opencv_highgui
     message("var: ${var}") # var: /usr/lib/x86_64-linux-gnu/libopencv_core.so
 
     unset(var CACHE) # 若不带CACHE,var是/usr/local/lib/libopencv_core.so而不是/usr/lib/x86_64-linux-gnu/libopencv_highgui.so
@@ -18,11 +18,11 @@ if(${FLAG} STREQUAL "1")
     message("var: ${var}") # var: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so
 
     unset(var CACHE)
-    find_library(var opencv_highgui) # 最简格式：find_library(<VAR> name)
+    find_library(var opencv_highgui) # 最简格式:find_library(<VAR> name)
     message("var: ${var}") # var: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so
 
     unset(var CACHE)
-    find_library(var NAMES opencv_xxxx) # 如果没找到库，结果将为<VAR>-NOTFOUND
+    find_library(var NAMES opencv_xxxx) # 如果没找到库,结果将为<VAR>-NOTFOUND
     message("var: ${var}") # var: var-NOTFOUND
     if(${var} STREQUAL "var-NOTFOUND")
         message(WARNING "the specified library was not found")
@@ -45,7 +45,7 @@ elseif(${FLAG} STREQUAL "2") # 使用库的全称查找
     message("var: ${var}") # var: var-NOTFOUND
 
     unset(var CACHE)
-    find_library(var NAMES opencv_highgui) # 仅有库名生效：opencv_highgui
+    find_library(var NAMES opencv_highgui) # 仅有库名生效:opencv_highgui
     message("var: ${var}") # var: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so
 elseif(${FLAG} STREQUAL "3") # 使用NO_CACHE项
     unset(var1 CACHE)
@@ -61,7 +61,7 @@ elseif(${FLAG} STREQUAL "4") # 使用PATH_SUFFIXES项
     message("var: ${var}") # var: var-NOTFOUND
 
     unset(var CACHE)
-    find_library(var NAMES opencv_core PATHS /opt/opencv3.1 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索：(1)./opt/opencv3.1/; (2)./opt/opencv3.1/lib/
+    find_library(var NAMES opencv_core PATHS /opt/opencv3.1 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索:(1)./opt/opencv3.1/; (2)./opt/opencv3.1/lib/
     message("var: ${var}") # var: /opt/opencv3.1/lib/libopencv_core.so
 
     unset(var CACHE)
@@ -69,7 +69,7 @@ elseif(${FLAG} STREQUAL "4") # 使用PATH_SUFFIXES项
     message("var: ${var}") # var: var-NOTFOUND
 
     unset(var CACHE)
-    find_library(var NAMES opencv_core HINTS /opt/opencv3.4.2 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索：(1)./opt/opencv3.4.2/; (2)./opt/opencv3.4.2/lib/
+    find_library(var NAMES opencv_core HINTS /opt/opencv3.4.2 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索:(1)./opt/opencv3.4.2/; (2)./opt/opencv3.4.2/lib/
     message("var: ${var}") # var: /opt/opencv3.4.2/lib/libopencv_core.so
 elseif(${FLAG} STREQUAL "5") # 使用REQUIRED项
     unset(var CACHE)
@@ -77,7 +77,7 @@ elseif(${FLAG} STREQUAL "5") # 使用REQUIRED项
     message("var: ${var}") # var: var-NOTFOUND
 
     unset(var CACHE)
-    find_library(var NAMES opencv_xxxx REQUIRED) # 将触发error，停止后续的执行:CMake Error at test_find_library.cmake:67 (find_library): Could not find var using the following names: opencv_xxxx
+    find_library(var NAMES opencv_xxxx REQUIRED) # 将触发error,停止后续的执行:CMake Error at test_find_library.cmake:67 (find_library): Could not find var using the following names: opencv_xxxx
 elseif(${FLAG} STREQUAL "6") # 使用NO_CMAKE_SYSTEM_PATH项
     unset(var CACHE)
     find_library(var NAMES opencv_core)
@@ -88,7 +88,7 @@ elseif(${FLAG} STREQUAL "6") # 使用NO_CMAKE_SYSTEM_PATH项
     message("var: ${var}") # var: var-NOTFOUND
 elseif(${FLAG} STREQUAL "7") # 使用PATHS和HINTS项
     unset(var CACHE)
-    find_library(var NAMES opencv_core PATHS /opt/opencv3.1/lib/) # PATHS:先搜索系统路径，然后再搜索PATHS指定的路径
+    find_library(var NAMES opencv_core PATHS /opt/opencv3.1/lib/) # PATHS:先搜索系统路径,然后再搜索PATHS指定的路径
     message("var: ${var}") # var: /usr/lib/x86_64-linux-gnu/libopencv_core.so
 
     unset(var CACHE)
@@ -98,7 +98,7 @@ elseif(${FLAG} STREQUAL "8") # 使用DOC项
     unset(var CACHE)
     find_library(var NAMES opencv_core DOC "opencv core dynamic library") # CMakeCache.txt中会对var增加注释说明
     message("var: ${var}") # var: /usr/lib/x86_64-linux-gnu/libopencv_core.so
-elseif(${FLAG} STREQUAL "9") # 使用NO_DEFAULT_PATH项：指定NO_DEFAULT_PATH后默认搜索路径将失效,只会搜索PATHS和HINTS指定的路径
+elseif(${FLAG} STREQUAL "9") # 使用NO_DEFAULT_PATH项:指定NO_DEFAULT_PATH后默认搜索路径将失效,只会搜索PATHS和HINTS指定的路径
     unset(var CACHE)
     find_library(var NAMES opencv_core PATHS /opt/opencv3.1/lib/ NO_DEFAULT_PATH) # 指定不使用默认路径,path最后带不带"/"均可
     message("var: ${var}") # var: /opt/opencv3.1/lib/libopencv_core.so

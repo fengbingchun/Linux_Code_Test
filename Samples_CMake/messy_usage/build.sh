@@ -1,7 +1,8 @@
 #! /bin/bash
 
 # supported input parameters
-params=(function macro cmake_parse_arguments find_library)
+params=(function macro cmake_parse_arguments \
+		find_library find_path find_file find_program find_package)
 
 usage()
 {

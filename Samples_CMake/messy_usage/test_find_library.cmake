@@ -1,8 +1,8 @@
 ﻿# Blog: https://blog.csdn.net/fengbingchun/article/details/127232175
 
-message("#### test_find_library.cmake ####")
+message("#### test_${TEST_CMAKE_FEATURE}.cmake ####")
 
-set(FLAG 9 CACHE STRING "Values that can be specified: [1, 9]" FORCE) # 设置FLAG,用来指定测试哪个代码段
+set(FLAG 1 CACHE STRING "Values that can be specified: [1, 9]" FORCE) # 设置FLAG,用来指定测试哪个代码段
 
 if(${FLAG} STREQUAL "1")
     unset(var CACHE) # 清除变量,带有CACHE也从缓存文件CMakeCache.txt中清除,若不带CACHE则缓存文件CMakeCache.txt中仍然存在var的值
@@ -61,7 +61,7 @@ elseif(${FLAG} STREQUAL "4") # 使用PATH_SUFFIXES项
     message("var: ${var}") # var: var-NOTFOUND
 
     unset(var CACHE)
-    find_library(var NAMES opencv_core PATHS /opt/opencv3.1 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索:(1)./opt/opencv3.1/; (2)./opt/opencv3.1/lib/
+    find_library(var NAMES opencv_core PATHS /opt/opencv3.1 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索:(1)/opt/opencv3.1/; (2)/opt/opencv3.1/lib/
     message("var: ${var}") # var: /opt/opencv3.1/lib/libopencv_core.so
 
     unset(var CACHE)
@@ -69,7 +69,7 @@ elseif(${FLAG} STREQUAL "4") # 使用PATH_SUFFIXES项
     message("var: ${var}") # var: var-NOTFOUND
 
     unset(var CACHE)
-    find_library(var NAMES opencv_core HINTS /opt/opencv3.4.2 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索:(1)./opt/opencv3.4.2/; (2)./opt/opencv3.4.2/lib/
+    find_library(var NAMES opencv_core HINTS /opt/opencv3.4.2 PATH_SUFFIXES lib NO_DEFAULT_PATH) # 搜索:(1)/opt/opencv3.4.2/; (2)/opt/opencv3.4.2/lib/
     message("var: ${var}") # var: /opt/opencv3.4.2/lib/libopencv_core.so
 elseif(${FLAG} STREQUAL "5") # 使用REQUIRED项
     unset(var CACHE)

@@ -1,4 +1,6 @@
-﻿message("#### test_cmake_parse_arguments.cmake ####")
+﻿# Blog: https://blog.csdn.net/fengbingchun/article/details/127154655
+
+message("#### test_${TEST_CMAKE_FEATURE}.cmake ####")
 
 #include(CMakeParseArguments) # CMake版本高于3.5时不再需要此句
 

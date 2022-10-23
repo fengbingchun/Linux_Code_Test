@@ -1,6 +1,6 @@
 ﻿# Blog: https://blog.csdn.net/fengbingchun/article/details/127144948
 
-message("#### test_function.cmake ####")
+message("#### test_${TEST_CMAKE_FEATURE}.cmake ####")
 
 message("1.function名称不区分大小写,但始终建议使用function定义中声明的相同名称")
 function(csdn_addr)

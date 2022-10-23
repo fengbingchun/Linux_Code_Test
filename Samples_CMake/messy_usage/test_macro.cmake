@@ -1,6 +1,6 @@
 ﻿# Blog: https://blog.csdn.net/fengbingchun/article/details/127145153
 
-message("#### test_macro.cmake ####")
+message("#### test_${TEST_CMAKE_FEATURE}.cmake ####")
 
 message("1.与function一样,macro名称也不区分大小写,但始终建议使用macro定义中声明的相同名称")
 macro(csdn_addr)

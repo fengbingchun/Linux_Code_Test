@@ -1,6 +1,8 @@
-﻿message("#### test_find_package.cmake ####")
+﻿# Blog: https://blog.csdn.net/fengbingchun/article/details/127473202
 
-set(FLAG 8 CACHE STRING "Values that can be specified: [1, 9]" FORCE) # 设置FLAG,用来指定测试哪个代码段
+message("#### test_${TEST_CMAKE_FEATURE}.cmake ####")
+
+set(FLAG 11 CACHE STRING "Values that can be specified: [1, 11]" FORCE) # 设置FLAG,用来指定测试哪个代码段
 
 if(${FLAG} STREQUAL "1") # 使用MODULE项
     find_package(OpenCV) # Found OpenCV: /usr (found version "4.5.4")
@@ -70,4 +72,35 @@ elseif(${FLAG} STREQUAL "8") # 使用CONFIG|NO_MODULE项
     find_package(OpenCV 4.5.4 EXACT NO_MODULE) # Found OpenCV: /usr (found suitable exact version "4.5.4")
     message("OpenCV_FOUND: ${OpenCV_FOUND}") # OpenCV_FOUND: 1
     message("OpenCV_INCLUDE_DIRS: ${OpenCV_INCLUDE_DIRS}") # OpenCV_INCLUDE_DIRS: /usr/include/opencv4
+elseif(${FLAG} STREQUAL "9") # 使用NAMES项
+    find_package(opencv) # CMake Warning at test_find_package.cmake:74 (find_package):
+                         # By not providing "Findopencv.cmake" in CMAKE_MODULE_PATH this project has
+                         # asked CMake to find a package configuration file provided by "opencv", but CMake did not find one.
+                         # Could not find a package configuration file provided by "opencv" with any of the following names:
+                         #   opencvConfig.cmake
+                         #   opencv-config.cmake
+    message("OpenCV_FOUND: ${OpenCV_FOUND}") # OpenCV_FOUND:
+
+    find_package(opencv NAMES OpenCV) # Found OpenCV: /usr (found version "4.5.4")
+    message("OpenCV_FOUND: ${OpenCV_FOUND}") # OpenCV_FOUND: TRUE
+elseif(${FLAG} STREQUAL "10") # 使用CONFIGS项
+    # 手动copy一份/opt/opencv3.1到/opt/opencv,并将/opt/opencv/share/OpenCV/OpenCVConfig.cmake调整为/opt/opencv/share/opencv/cv_config.cmake
+    set(OpenCV_DIR "/opt/opencv/share/opencv/")
+    find_package(OpenCV NO_DEFAULT_PATH) # Could NOT find OpenCV (missing: OpenCV_DIR)
+    message("OpenCV_FOUND: ${OpenCV_FOUND}") # OpenCV_FOUND: 0
+
+    set(OpenCV_DIR "/opt/opencv/share/opencv/")
+    find_package(OpenCV CONFIGS cv_config.cmake NO_DEFAULT_PATH)
+    message("OpenCV_INCLUDE_DIRS: ${OpenCV_INCLUDE_DIRS}") # OpenCV_INCLUDE_DIRS: /opt/opencv/include/opencv;/opt/opencv/include
+    message("OpenCV_FOUND: ${OpenCV_FOUND}") # OpenCV_FOUND: 1
+    message("OpenCV_CONFIG: ${OpenCV_CONFIG}") # OpenCV_CONFIG: /opt/opencv/share/opencv/cv_config.cmake
+    message("OpenCV_CONSIDERED_CONFIGS: ${OpenCV_CONSIDERED_CONFIGS}") # OpenCV_CONSIDERED_CONFIGS: /opt/opencv/share/opencv/cv_config.cmake
+    message("OpenCV_CONSIDERED_VERSIONS: ${OpenCV_CONSIDERED_VERSIONS}") # OpenCV_CONSIDERED_VERSIONS: unknown
+elseif(${FLAG} STREQUAL "11")
+    find_package(OpenCV) # Found OpenCV: /usr (found version "4.5.4")
+    message("OpenCV_FOUND: ${OpenCV_FOUND}") # OpenCV_FOUND: 1
+    message("OpenCV_CONSIDERED_CONFIGS: ${OpenCV_CONSIDERED_CONFIGS}") # OpenCV_CONSIDERED_CONFIGS: /usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake
+    message("OpenCV_CONSIDERED_VERSIONS: ${OpenCV_CONSIDERED_VERSIONS}") # OpenCV_CONSIDERED_VERSIONS: 4.5.4
+    message("CMAKE_LIBRARY_ARCHITECTURE: ${CMAKE_LIBRARY_ARCHITECTURE}") # CMAKE_LIBRARY_ARCHITECTURE: x86_64-linux-gnu
+    message("FIND_LIBRARY_USE_LIB64_PATHS: ${FIND_LIBRARY_USE_LIB64_PATHS}") # FIND_LIBRARY_USE_LIB64_PATHS:
 endif()

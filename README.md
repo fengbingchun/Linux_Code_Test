@@ -10,6 +10,9 @@
     - [find_program](Samples_CMake/messy_usage/test_find_program.cmake)
     - [find_package](Samples_CMake/messy_usage/test_find_package.cmake)
     - [cmake_policy](Samples_CMake/messy_usage/test_cmake_policy.cmake)
+    - [cmake_minimum_required](Samples_CMake/messy_usage/test_cmake_minimum_required.cmake)
+    - [project](Samples_CMake/messy_usage/test_project.cmake)
+    - [include](Samples_CMake/messy_usage/test_include.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

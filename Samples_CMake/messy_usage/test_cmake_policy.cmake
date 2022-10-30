@@ -39,7 +39,7 @@ elseif(${FLAG} STREQUAL "4") # cmake_policy(PUSH) cmake_policy(POP)
     cmake_policy(PUSH)
     # other operate ...
     cmake_policy(POP)
-elseif(${FLAG} STREQUAL "5") # if(POLICY CMP<NNNN)
+elseif(${FLAG} STREQUAL "5") # if(POLICY CMP<NNNN>)
     if(POLICY CMP0139) # 3.24, 当前的CMake是否设置了指定的policy
         message("set policy cmp0139")
         cmake_policy(SET CMP0139 NEW)

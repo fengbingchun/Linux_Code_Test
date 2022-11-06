@@ -13,6 +13,8 @@
     - [cmake_minimum_required](Samples_CMake/messy_usage/test_cmake_minimum_required.cmake)
     - [project](Samples_CMake/messy_usage/test_project.cmake)
     - [include](Samples_CMake/messy_usage/test_include.cmake)
+    - [string](Samples_CMake/messy_usage/test_string.cmake)
+    - [list](Samples_CMake/messy_usage/test_list.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

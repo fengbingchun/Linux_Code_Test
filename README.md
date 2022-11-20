@@ -19,6 +19,10 @@
     - [foreach](Samples_CMake/messy_usage/test_foreach.cmake)
     - [message](Samples_CMake/messy_usage/test_message.cmake)
     - [option/cmake_dependent_option](Samples_CMake/messy_usage/test_option.cmake)
+    - [if](Samples_CMake/messy_usage/test_if.cmake)
+    - [while/continue/break](Samples_CMake/messy_usage/test_while.cmake)
+    - [return](Samples_CMake/messy_usage/test_return.cmake)
+    - [math](Samples_CMake/messy_usage/test_math.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

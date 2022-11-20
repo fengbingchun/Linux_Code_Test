@@ -4,7 +4,8 @@
 params=(function macro cmake_parse_arguments \
 		find_library find_path find_file find_program find_package \
 		cmake_policy cmake_minimum_required project include \
-		string list set foreach message option if)
+		string list set foreach message option if while return \
+		math file)
 
 usage()
 {

@@ -23,6 +23,9 @@
     - [while/continue/break](Samples_CMake/messy_usage/test_while.cmake)
     - [return](Samples_CMake/messy_usage/test_return.cmake)
     - [math](Samples_CMake/messy_usage/test_math.cmake)
+    - [file](Samples_CMake/messy_usage/test_file.cmake)
+    - [configure_file](Samples_CMake/messy_usage/test_configure_file.cmake)
+    - [include_directories](Samples_CMake/messy_usage/test_include_directories.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

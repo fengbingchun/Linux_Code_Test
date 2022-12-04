@@ -19,3 +19,5 @@
 /Samples_Hook/*/*.so
 /Samples_CMake/messy_usage/build/
 /Samples_CMake/messy_usage/tmp.txt
+.vscode
+/Samples_CMake/messy_usage/install/

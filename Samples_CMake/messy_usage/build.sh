@@ -6,7 +6,7 @@ params=(function macro cmake_parse_arguments \
 		cmake_policy cmake_minimum_required project include \
 		string list set foreach message option if while return \
 		math file configure_file \
-		include_directories)
+		include_directories add_executable add_library target_link_libraries install)
 
 usage()
 {
@@ -52,3 +52,4 @@ echo "==== test $1 ===="
 cmake -DTEST_CMAKE_FEATURE=$1 ..
 # It can be executed directly on the terminal, no need to execute build.sh, for example: cmake -P test_set.cmake
 make
+make install # only used in cmake files with install command

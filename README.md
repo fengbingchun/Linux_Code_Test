@@ -26,6 +26,10 @@
     - [file](Samples_CMake/messy_usage/test_file.cmake)
     - [configure_file](Samples_CMake/messy_usage/test_configure_file.cmake)
     - [include_directories](Samples_CMake/messy_usage/test_include_directories.cmake)
+    - [add_executable](Samples_CMake/messy_usage/test_add_executable.cmake)
+    - [add_library](Samples_CMake/messy_usage/test_add_library.cmake)
+    - [target_link_libraries](Samples_CMake/messy_usage/test_target_link_libraries.cmake)
+    - [install](Samples_CMake/messy_usage/test_install.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

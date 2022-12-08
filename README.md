@@ -30,6 +30,9 @@
     - [add_library](Samples_CMake/messy_usage/test_add_library.cmake)
     - [target_link_libraries](Samples_CMake/messy_usage/test_target_link_libraries.cmake)
     - [install](Samples_CMake/messy_usage/test_install.cmake)
+    - [target_sources](Samples_CMake/messy_usage/test_target_sources.cmake)
+    - [add_custom_command](Samples_CMake/messy_usage/test_add_custom_command.cmake)
+    - [add_custom_target](Samples_CMake/messy_usage/test_add_custom_target.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

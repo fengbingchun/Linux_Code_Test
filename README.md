@@ -33,6 +33,10 @@
     - [target_sources](Samples_CMake/messy_usage/test_target_sources.cmake)
     - [add_custom_command](Samples_CMake/messy_usage/test_add_custom_command.cmake)
     - [add_custom_target](Samples_CMake/messy_usage/test_add_custom_target.cmake)
+    - [add_subdirectory](Samples_CMake/messy_usage/test_add_subdirectory.cmake)
+    - [aux_source_directory](Samples_CMake/messy_usage/test_aux_source_directory.cmake)
+    - [set_property/get_property](Samples_CMake/messy_usage/test_set_property.cmake)
+    - [set_target_properties/get_target_property](Samples_CMake/messy_usage/test_set_target_properties.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

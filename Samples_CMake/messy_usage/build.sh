@@ -7,7 +7,9 @@ params=(function macro cmake_parse_arguments \
 		string list set foreach message option if while return \
 		math file configure_file \
 		include_directories add_executable add_library target_link_libraries install \
-		target_sources add_custom_command add_custom_target)
+		target_sources add_custom_command add_custom_target \
+		add_subdirectory aux_source_directory \
+		set_property set_target_properties define_property)
 
 usage()
 {

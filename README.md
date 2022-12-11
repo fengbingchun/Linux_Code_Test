@@ -37,6 +37,9 @@
     - [aux_source_directory](Samples_CMake/messy_usage/test_aux_source_directory.cmake)
     - [set_property/get_property](Samples_CMake/messy_usage/test_set_property.cmake)
     - [set_target_properties/get_target_property](Samples_CMake/messy_usage/test_set_target_properties.cmake)
+    - [define_property](Samples_CMake/messy_usage/test_define_property.cmake)
+    - [add_definitions/add_compile_definitions](Samples_CMake/messy_usage/test_add_definitions.cmake)
+    - [target_compile_definitions](Samples_CMake/messy_usage/test_target_compile_definitions.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

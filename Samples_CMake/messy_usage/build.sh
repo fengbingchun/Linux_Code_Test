@@ -10,7 +10,8 @@ params=(function macro cmake_parse_arguments \
 		target_sources add_custom_command add_custom_target \
 		add_subdirectory aux_source_directory \
 		set_property set_target_properties define_property \
-		add_definitions target_compile_definitions)
+		add_definitions target_compile_definitions target_compile_features \
+		add_compile_options target_include_directories link_directories)
 
 usage()
 {

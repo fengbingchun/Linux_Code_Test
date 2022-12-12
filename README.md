@@ -40,6 +40,10 @@
     - [define_property](Samples_CMake/messy_usage/test_define_property.cmake)
     - [add_definitions/add_compile_definitions](Samples_CMake/messy_usage/test_add_definitions.cmake)
     - [target_compile_definitions](Samples_CMake/messy_usage/test_target_compile_definitions.cmake)
+    - [target_compile_features](Samples_CMake/messy_usage/test_target_compile_features.cmake)
+    - [add_compile_options/target_compile_options](Samples_CMake/messy_usage/test_add_compile_options.cmake)
+    - [target_include_directories](Samples_CMake/messy_usage/test_target_include_directories.cmake)
+    - [link_directories/target_link_directories](Samples_CMake/messy_usage/test_link_directories.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

@@ -44,6 +44,7 @@
     - [add_compile_options/target_compile_options](Samples_CMake/messy_usage/test_add_compile_options.cmake)
     - [target_include_directories](Samples_CMake/messy_usage/test_target_include_directories.cmake)
     - [link_directories/target_link_directories](Samples_CMake/messy_usage/test_link_directories.cmake)
+    - [link_libraries](Samples_CMake/messy_usage/test_link_libraries.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

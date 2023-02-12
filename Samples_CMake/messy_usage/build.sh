@@ -12,7 +12,7 @@ params=(function macro cmake_parse_arguments \
 		set_property set_target_properties define_property \
 		add_definitions target_compile_definitions target_compile_features \
 		add_compile_options target_include_directories link_directories \
-		add_link_options)
+		add_link_options target_precompile_headers)
 
 usage()
 {

@@ -45,6 +45,7 @@
     - [target_include_directories](Samples_CMake/messy_usage/test_target_include_directories.cmake)
     - [link_directories/target_link_directories](Samples_CMake/messy_usage/test_link_directories.cmake)
     - [link_libraries](Samples_CMake/messy_usage/test_link_libraries.cmake)
+    - [target_precompile_headers](Samples_CMake/messy_usage/test_target_precompile_headers.cmake)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

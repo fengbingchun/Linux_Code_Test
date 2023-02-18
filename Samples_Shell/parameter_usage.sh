@@ -13,6 +13,8 @@ fi
 echo "执行文件名： $0"
 echo "param1: $1"; echo "param2: $2"; echo "param3: $3"
 
+parameters=$*
+
 # 特殊字符用来处理参数
 # $#: 传递到脚本的参数个数
 echo "参数个数为： $#"
@@ -29,3 +31,8 @@ echo ""
 for i in "$@"; do # 循环三次
     echo "loop"; echo $i
 done
+
+get_csdn_addr()
+{
+    echo "csdn addr: https://blog.csdn.net/fengbingchun/"
+}

@@ -1,4 +1,4 @@
-#命名管道FIFO的使用,创建命名管道并写入数据
+//命名管道FIFO的使用,创建命名管道并写入数据
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/stat.h>

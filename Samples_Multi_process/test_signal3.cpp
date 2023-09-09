@@ -1,5 +1,5 @@
 //信号的使用
-//运行时，需要按：Ctrl+C或Ctrl+\
+//运行时，需要按: Ctrl+\或Ctrl+C
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>

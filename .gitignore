@@ -21,3 +21,4 @@
 /Samples_CMake/messy_usage/tmp.txt
 .vscode
 /Samples_CMake/messy_usage/install/
+/Samples_Multi_process/build/

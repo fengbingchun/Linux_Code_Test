@@ -13,4 +13,5 @@ foreach(sample ${samples})
     #message(STATUS "exec name: ${exec_name}")
 
     add_executable(${exec_name} ${sample})
+    target_link_libraries(${exec_name} rt)
 endforeach()

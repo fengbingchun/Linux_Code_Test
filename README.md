@@ -51,6 +51,9 @@
 - Shell's usage
 - Multi-thread's usage
 - Multi-process's usage
+    - named pipe
+    - UNIX domain socket
+    - shared memory
 - Socket's usage
 - Special usage of C/C++ under Linux
 - GNU AWK's usage

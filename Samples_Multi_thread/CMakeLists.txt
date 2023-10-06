@@ -1,18 +1,17 @@
-PROJECT(samples_multi_thread)
 cmake_minimum_required(VERSION 2.8)
+PROJECT(samples_multi_thread)
 
-MESSAGE("Find .cpp files in ${CMAKE_CURRENT_SOURCE_DIR}")
+set(CMAKE_BUILD_TYPE Release) # only works under linux
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -std=c++17")
 
-#support c++11
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -Wall -O2 -std=gnu++0x")
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -O2 -std=gnu++0x")
+file(GLOB samples ${PROJECT_SOURCE_DIR}/test_*.cpp)
+#message(STATUS "samples: ${samples}")
 
-FILE(GLOB samples ${PROJECT_SOURCE_DIR}/*.cpp)
+foreach(sample ${samples})
+    string(REGEX MATCH "[^/]+$" name ${sample})
+    string(REPLACE ".cpp" "" exec_name ${name})
+    #message(STATUS "exec name: ${exec_name}")
 
-FOREACH (sample ${samples})
-	STRING(REGEX MATCH "[^/]+$" sample_file ${sample})
-	STRING(REPLACE ".cpp" "" sample_basename ${sample_file})
-	ADD_EXECUTABLE(${sample_basename} ${sample})
-	TARGET_LINK_LIBRARIES(${sample_basename} pthread)
-ENDFOREACH()
-
+    add_executable(${exec_name} ${sample})
+    target_link_libraries(${exec_name} rt)
+endforeach()

@@ -47,6 +47,7 @@
     - [link_libraries](Samples_CMake/messy_usage/test_link_libraries.cmake)
     - [target_precompile_headers](Samples_CMake/messy_usage/test_target_precompile_headers.cmake)
     - [cmake_host_system_information](Samples_CMake/messy_usage/test_cmake_host_system_information.cmake)
+    - [CMake MFC test project](Samples_CMake/MFC/MFCApplication1/README.md)
 - Make's usage
 - Shell's usage
 - Multi-thread's usage

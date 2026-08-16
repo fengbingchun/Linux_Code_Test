@@ -22,3 +22,4 @@
 .vscode
 /Samples_CMake/messy_usage/install/
 /Samples_Multi_process/build/
+/Samples_CMake/ninja_usage/build

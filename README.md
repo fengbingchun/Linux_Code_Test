@@ -64,6 +64,7 @@
     - vector
 - Conan's usage
 - Hook's usage
+- Ninja's usage
 
 **CMake Blog:** [fengbingchun](http://blog.csdn.net/fengbingchun/article/category/783053)
 
